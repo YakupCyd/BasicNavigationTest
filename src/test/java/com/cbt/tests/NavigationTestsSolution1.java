@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class NavigationTestsSolution1 {
 
+	//call the test methods
 	public static void main(String[] args) {
 		testForChrome();
 		testForEdge();
@@ -15,25 +16,47 @@ public class NavigationTestsSolution1 {
 		//testForSafari();
 	}
 
+
+	//the test case for Chrome
 	public static void testForChrome(){
+		//initiate a web driver object from BrowserFactory class
 		WebDriver driver = BrowserFactory.getDriver("Chrome");
+
+		//go to google
 		driver.get("https://google.com");
+
+		//get title of the page
 		String titleFromGoogle = driver.getTitle();
 
+		//go to etsy
 		driver.get("https://etsy.com");
+
+		//get title of the page
 		String titleFromEtsy = driver.getTitle();
 
+		//go back
 		driver.navigate().back();
+
+		//get title of the page
 		String titleFromGoogle2 = driver.getTitle();
+
+		//verify the titles using the methods from Utility class
 		StringUtility.verifyEquals(titleFromGoogle,titleFromGoogle2);
 
+		//go forward
 		driver.navigate().forward();
+
+		//get title of the page
 		String titleFromEtsy2 = driver.getTitle();
+
+		//verify the titles using the methods from Utility class
 		StringUtility.verifyEquals(titleFromEtsy,titleFromEtsy2);
 
+		//close all the tabs and quit
 		driver.quit();
 	}
 
+	//the test case for Firefox
 	public static void testForFirefox(){
 		WebDriver driver = BrowserFactory.getDriver("Firefox");
 		driver.get("https://google.com");
@@ -53,7 +76,7 @@ public class NavigationTestsSolution1 {
 		driver.quit();
 	}
 
-	//if you're using Windows computer
+	//the test case for Edge, if you're using Windows computer
 	public static void testForEdge(){
 		WebDriver driver = BrowserFactory.getDriver("Edge");
 		driver.get("https://google.com");
@@ -71,7 +94,7 @@ public class NavigationTestsSolution1 {
 		StringUtility.verifyEquals(titleFromEtsy,titleFromEtsy2);
 	}
 
-	//if you're using Mac computer
+	//the test case for Safari, if you're using Mac computer
 	public static void testForSafari(){
 		WebDriver driver = BrowserFactory.getDriver("Safari");
 		driver.get("https://google.com");
