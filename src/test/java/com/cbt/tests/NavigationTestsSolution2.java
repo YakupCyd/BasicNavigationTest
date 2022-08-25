@@ -15,6 +15,8 @@ public class NavigationTestsSolution2 {
 		//testBrowser("Safari");
 	}
 
+	//one test case for all the browsers
+	//just pass the browser type as a parameter
 	public static void testBrowser(String browserType){
 		WebDriver driver = BrowserFactory.getDriver(browserType);
 		driver.get("https://google.com");
